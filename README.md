@@ -1,6 +1,6 @@
 # Créer un serveur Express
 
-1. Installer Express
+1. Installer Express 👍
 2. Importer Express
 3. Créer une constante app = express() → va prendre toutes les fonctionnalités de Express
 4. Régler les erreurs CORS 
