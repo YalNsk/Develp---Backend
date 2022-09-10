@@ -1,6 +1,6 @@
 const { Schema, model  } = require('mongoose');
 
-const userSchema = new Schema({
+const postsSchema = new Schema({
 
     pseudo : {
         type : String,
@@ -28,8 +28,12 @@ const userSchema = new Schema({
     illustration : 
 
     {
-        type : Image,
+        type : String,
         required : false
     }
 
 });
+
+const Posts = model('lesPosts', postsSchema);
+
+module.exports = Posts;
