@@ -6,7 +6,7 @@
 4. Régler les erreurs CORS 
     - npm i cors
 5. Créer les variables d’environnement * (developpement, production, …) 
-    - définir NODE_ENV dans le package → savoir où l’on va travailler
+    - *définir NODE_ENV dans le package → savoir où l’on va travailler
 6. Extraire les variables dont on a besoin
 7. Mettre le serveur sur écoute
 8. Gestion des erreurs async / await
