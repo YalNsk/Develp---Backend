@@ -1,11 +1,12 @@
-const { Schema, model  } = require('mongoose');
+const { Schema, model, Types  } = require('mongoose');
+const User = require('./user-model');
 
 const postsSchema = new Schema({
 
-    pseudo : {
-        type : String,
+    senderiD : {
+        type : Types.ObjectId,
         required : true,
-        trim : true
+        ref : User
     },
 
     message : {

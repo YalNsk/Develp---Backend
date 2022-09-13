@@ -2,7 +2,7 @@ const yup = require('yup');
 
 
 const pwdRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W|_]).+$/;
-
+// ↑ MDP au moins un chiffre, une lettre minuscule, une lettre majuscule et un caractère spécial ↑ // 
 
 const registerValidator = yup.object({
     pseudo : yup.string().trim().required().min(3).max(50),

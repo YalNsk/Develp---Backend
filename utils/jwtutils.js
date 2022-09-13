@@ -13,7 +13,7 @@ const jwtUtils = {
 
             const options = {
                 algorithm : 'HS512',
-                expiresIn : '20j',
+                expiresIn : '20d',
                 audience: JWT_AUDIENCE,
                 issuer : JWT_ISSUER
             }

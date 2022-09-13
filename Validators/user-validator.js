@@ -1,6 +1,6 @@
 const yup = require('yup');
 
-const technoRegex = /^(Python)|(JavaScript)|(Java)|(C)|(C++)|(C#)|(Ruby)|(PHP)|(Objective-C)|(Other)$/i;
+const technoRegex = /^(Python)|(JavaScript)|(Java)|(C)|(C#)|(Ruby)|(PHP)|(Objective-C)|(Other)$/i;
 
 const userValidator = yup.object({
     firstname : yup.string().trim().required().min(3).max(150),
