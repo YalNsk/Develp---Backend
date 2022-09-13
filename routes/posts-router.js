@@ -1,5 +1,6 @@
 const postsRouter = require('express').Router(); 
 const postController = require('../controllers/posts-controller');
+const idValidator = require('../middlewares/idValidator');
 
 
 postsRouter.route('/')
@@ -7,9 +8,9 @@ postsRouter.route('/')
     .post(postController.create) //Création d'un post
 
 postsRouter.route('/:id')
-    .get(postController.getByID) //Info d'un post
-    .put(postController.update) //Modification d'un post
-    .delete(postController.delete); //Suppresion d'un post
+    .get(idValidator(), postController.getByID) //Info d'un post
+    .put(idValidator(), postController.update) //Modification d'un post
+    .delete(idValidator(), postController.delete); //Suppresion d'un post
 
 
 module.exports=postsRouter;
