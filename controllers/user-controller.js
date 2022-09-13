@@ -3,7 +3,9 @@ const User = require('../models/user-model');
 const userController = {
     getAll : async (req, res) => {
         const users = await User.find();
-        res.status(200).json(users);
+
+        const usersDTO = users.map(userMapperToDTO);        
+        res.status(200).json(usersDTO);
     },
 
 
@@ -14,7 +16,8 @@ const userController = {
         if(!user){
             return res.sendStatus(404)
         }
-        res.status(200).json(user);
+        const usersDTO = users.map(userMapperToDTO);        
+        res.status(200).json(usersDTO);
     },
 
 
@@ -37,7 +40,8 @@ const userController = {
         }
 
         else {
-            res.status(200) 
+            const usersDTO = users.map(userMapperToDTO);        
+            res.status(200).json(usersDTO);
         }
     },
     delete : async (req, res) => {

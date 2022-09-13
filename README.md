@@ -43,7 +43,8 @@
 - cors
 
 ### Lecture variables environnement 
-
 - cross-env
 - dotenv-flow
 
+### Autres
+- Yup
