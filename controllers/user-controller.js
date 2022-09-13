@@ -18,16 +18,6 @@ const userController = {
     },
 
 
-
-    create: async (req, res) => {
-        console.log("Nouvel utilisateur enregistré !");
-        const userToAdd = User(req.body);
-        console.log(userToAdd);
-        await userToAdd.save();
-        res.status(200).json(userToAdd);
-    },
-
-
     
     update : async (req, res) => {
         const id = req.params.id;

@@ -1,8 +1,8 @@
-const Post = require('../models/posts-model');
+const Posts = require('../models/posts-model');
 
 const postController = {
     getAll : async (req, res) => {
-        const posts = await Post.find();
+        const posts = await Posts.find();
         res.status(200).json(posts);
     },
 
@@ -10,7 +10,7 @@ const postController = {
 
     getByID : async (req, res) => {
         const id = req.params.id;
-        const post = await Post.findById(id);
+        const post = await Posts.findById(id);
         if(!post){
             return res.sendStatus(404)
         }
@@ -20,8 +20,8 @@ const postController = {
 
 
     create: async (req, res) => {
-        console.log("Nouvel utilisateur enregistré !");
-        const postToAdd = Post(req.body);
+        console.log("Nouveau message posté !");
+        const postToAdd = Posts(req.body);
         console.log(postToAdd);
         await postToAdd.save();
         res.status(200).json(postToAdd);
@@ -34,7 +34,7 @@ const postController = {
 
         const {email, firstname, lastname, adress } = req.body
 
-        const postUpdated = await Post.findByIdAndUpdate(id, {
+        const postUpdated = await Posts.findByIdAndUpdate(id, {
             email,
             firstname,
             lastname,
@@ -53,7 +53,7 @@ const postController = {
     delete : async (req, res) => {
         const id = req.params.id;
 
-        const postToDelete = await Post.findByIdAndDelete(id);
+        const postToDelete = await Posts.findByIdAndDelete(id);
         
         if(!postToDelete){
             return res.sendStatus(404); //NotFound -> id

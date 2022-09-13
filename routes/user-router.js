@@ -3,7 +3,6 @@ const userController = require('../controllers/user-controller');
 
 userRouter.route('/')
     .get(userController.getAll) //Voir tous les users
-    .post(userController.create) //Création d'un user
 
 userRouter.route('/:id')
     .get(userController.getByID) //Info d'un user

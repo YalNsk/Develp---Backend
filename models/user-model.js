@@ -1,9 +1,15 @@
 const { Schema, model  } = require('mongoose');
+const {isEmail} = require ('validator')
 
 const userSchema = new Schema({
     email : {
         type : String,
         required : true,
+        validate : (value) => {
+            if(!isEmail(value)) {
+                throw new Error ('Mail invalide')
+            }
+        },
         unique : true,
         trim : true
     },
@@ -14,6 +20,7 @@ const userSchema = new Schema({
     pseudo : {
         type : String,
         required : true,
+        unique : true,
         trim : true
     },
     firstname : {

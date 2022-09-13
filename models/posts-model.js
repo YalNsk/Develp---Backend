@@ -34,6 +34,6 @@ const postsSchema = new Schema({
 
 });
 
-const Posts = model('lesPosts', postsSchema);
+const Posts = model('posts', postsSchema);
 
 module.exports = Posts;

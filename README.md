@@ -30,3 +30,20 @@
 15. Placer le controller sur la bonne route
 16. Faire les éventuels populate pour avoir des infos + claires / précises 
 17. Mettre en place des middlewares
+
+## Librairie installées 
+
+### Général
+- Express 
+- Mongoose 
+- Nodemon
+
+### Gestion des erreurs 
+- express-async-errors
+- cors
+
+### Lecture variables environnement 
+
+- cross-env
+- dotenv-flow
+
