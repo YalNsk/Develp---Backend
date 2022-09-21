@@ -6,15 +6,17 @@ const technoRegex = /^(Python)|(JavaScript)|(Java)|(C)|(C#)|(Ruby)|(PHP)|(Object
 
 const insertPostValidator = yup.object({
     message : yup.string().trim().max(1500),
-    senderid : yup.string().required().matches(idRegex),
+    senderiD : yup.string().required().matches(idRegex),
     techno : yup.string().matches(technoRegex),
-    budget : yup.string().required()
+    budget : yup.string().required(),
+    titre : yup.string().min(3).max(50).required()
 });
 
 const updatePostValidator = yup.object({
-    message : yup.string().trim().max(1500),
+    message : yup.string().trim().max(1500).required(),
     techno : yup.string().matches(technoRegex),
-    budget : yup.string().required()
+    budget : yup.string().required(),
+    titre : yup.string().min(3).max(50).required()
 });
 
 module.exports = { insertPostValidator, updatePostValidator };

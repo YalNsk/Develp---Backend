@@ -1,4 +1,7 @@
 const User = require('../models/user-model');
+const UserDTO = require('../dto/user-dto')
+
+const userMapperToDTO = (user) => new UserDTO(user.id, user.email, user.pseudo, user.firstname, user.lastname)
 
 const userController = {
     getAll : async (req, res) => {
@@ -16,7 +19,7 @@ const userController = {
         if(!user){
             return res.sendStatus(404)
         }
-        const usersDTO = users.map(userMapperToDTO);        
+        const usersDTO = userMapperToDTO(user);        
         res.status(200).json(usersDTO);
     },
 

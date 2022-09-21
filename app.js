@@ -17,6 +17,7 @@ console.log('Lancé en', NODE_ENV, ' : ', MESSAGE);
 
 require('express-async-errors'); //Gestion des erreurs async/await
 app.use(express.json());  //Lecture des objets json
+app.use(express.static('public'))
 
 // On importe les différentes routes
 const router = require('./routes')

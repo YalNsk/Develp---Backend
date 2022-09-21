@@ -2,8 +2,11 @@ const Posts = require('../models/posts-model');
 
 const postController = {
     getAll : async (req, res) => {
-        const posts = await Posts.find();
-        res.status(200).json(posts);
+        const offset = req.query.offset?req.query.offset:0;
+        const limit = req.query.limit?req.query.limit:0;
+        const posts = await Posts.find().sort({updatedAt : -1}).limit(limit).skip(offset);
+        const count = await Posts.countDocuments();
+        res.status(200).json({posts, count});
     },
 
 
@@ -20,11 +23,23 @@ const postController = {
 
 
     create: async (req, res) => {
-        console.log("Nouveau message posté !");
-        const postToAdd = Posts(req.body);
-        console.log(postToAdd);
+        const {titre, senderiD, message, techno, budget} = req.body;
+
+        console.log('fichier après insertion backend', req.file);
+
+        const postToAdd = Posts({
+            titre, 
+            senderiD,
+            message,
+            techno,
+            budget,
+            illu : `http://localhost:8080/uploads/illus/${req.file.filename}`
+        });
+
         await postToAdd.save();
         res.status(200).json(postToAdd);
+
+        console.log("Nouveau message posté !");
     },
 
 

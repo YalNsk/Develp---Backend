@@ -3,6 +3,11 @@ const User = require('./user-model');
 
 const postsSchema = new Schema({
 
+    titre : {
+        type : String,
+        required : true
+    },
+
     senderiD : {
         type : Types.ObjectId,
         required : true,
@@ -26,14 +31,17 @@ const postsSchema = new Schema({
         trim : true
     }, 
 
-    illustration : 
-
+    illu : 
     {
         type : String,
         required : false
     }
 
-});
+}, 
+    {
+        timestamps : true
+    }
+);
 
 const Posts = model('posts', postsSchema);
 
