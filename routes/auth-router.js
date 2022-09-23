@@ -2,7 +2,7 @@ const authController = require('../controllers/auth-controller');
 const bodyValidation = require('../middlewares/bodyValidation');
 const { registerValidator, loginValidator } = require('../validators/auth-validator');
 
-const authRouter = require('express').Router(); 
+const authRouter = require('express').Router();
 
 authRouter.route('/login')
     .post(bodyValidation(loginValidator), authController.login)

@@ -33,16 +33,17 @@ const authController = {
         const hashedPassword = await argon2.hash(password);
 
 
+
         const userToInsert = User({
             pseudo,
             email,
             lastname,
             firstname,
-            password : hashedPassword 
+            password : hashedPassword
         });
         await userToInsert.save();
         const token = await jwtUtils.generate(userToInsert);
-        res.status(200).json({token});
+        res.status(200).json({token, userId:userToInsert.id});
         console.log("Nouvel utilisateur enregitré", userToInsert)
     }
 }
