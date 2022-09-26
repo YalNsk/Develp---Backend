@@ -5,6 +5,7 @@ require('dotenv-flow').config();
 // Création du serveur
 const express =  require("express");
 const cors = require("cors");
+const socket = require('socket.io');
 
 app = express(); 
 app.use(cors());

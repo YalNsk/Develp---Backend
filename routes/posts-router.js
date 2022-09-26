@@ -18,7 +18,7 @@ const upload = multer({ storage });
 
 postsRouter.route('/')
     .get(postController.getAll) //Voir tous les posts
-    .post(bodyValidation(insertPostValidator), upload.single('illu'),  postController.create) //Création d'un post
+    .post(/*bodyValidation(insertPostValidator),*/ upload.single('illu'),  postController.create) //Création d'un post
 
 postsRouter.route('/:id')
     .get(idValidator(), postController.getByID) //Info d'un post
